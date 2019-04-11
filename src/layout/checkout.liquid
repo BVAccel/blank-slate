@@ -1,6 +1,6 @@
 <!doctype html>
   <!--[if IE 9]> <html class="ie9 no-js supports-no-cookies" lang="{{ shop.locale }}"> <![endif]-->
-  <!--[if (gt IE 9)|!(IE)]><!--> <html class="no-js supports-no-cookies" lang="{{ shop.locale }}"> <!--<![endif]-->
+  <!--[if (gt IE 9)|!(IE)]><!--> <html class="no-js supports-no-cookies {{ checkout_html_classes }}" dir="{{ direction }}" lang="{{ locale }}"> <!--<![endif]-->
 
   <head>
 
@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <link rel="canonical" href="{{ canonical_url }}">
 
-    {%- include 'layout-favicon' -%}
+    {%- include 'favicon' -%}
 
     <title>{{ page_title }}</title>
 
@@ -43,10 +43,7 @@
 
     <div class="banner" data-header>
       <div class="wrap">
-        <a href="https://tommyjohn.myshopify.com" class="logo logo--left">
-          <h1 class="logo__text visually-hidden">TommyJohn</h1>
-          {% include 'svg-logo' %}
-        </a>
+        {{ content_for_logo }}
       </div>
     </div>
 
@@ -56,14 +53,7 @@
       <div class="wrap">
         <div class="main" role="main">
           <div class="main__header">
-
-
-            <a href="https://tommyjohn.myshopify.com" class="logo logo--left">
-                <h1 class="logo__text visually-hidden">TommyJohn</h1>
-                {% include 'svg-logo' %}
-            </a>
-
-
+            {{ content_for_logo }}
             {{ breadcrumb }}
             {{ alternative_payment_methods }}
           </div>
@@ -76,14 +66,7 @@
         </div>
         <div class="sidebar" role="complementary">
           <div class="sidebar__header">
-
-
-            <a href="https://tommyjohn.myshopify.com" class="logo logo--left">
-                <h1 class="logo__text visually-hidden">TommyJohn</h1>
-                {% include 'svg-logo' %}
-            </a>
-
-
+            {{ content_for_logo }}
           </div>
           <div class="sidebar__content">
             {{ content_for_order_summary }}
