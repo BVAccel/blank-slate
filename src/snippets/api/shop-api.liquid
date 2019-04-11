@@ -1,0 +1,37 @@
+<script data-shop-api>
+  document.documentElement.className = document.documentElement.className.replace('no-js', '');
+
+  window.bvaccel = {
+    product: {
+      handle: {{ product.handle | json }},
+    },
+    collection: {
+      handle: {{ collection.handle | json }},
+    },
+    customer: {
+      loggedIn: {% if customer %}true{% else %}false{% endif %},
+      id: {{ customer.id | json }},
+      email: {{ customer.email | json }},
+      order_count: {{ customer.orders_count | json }},
+    },
+    template: {
+      path: {{ template | json }},
+      name: {{ template.name | json }},
+      alternate: {{ template.suffix | json }},
+    },
+    theme: {
+      currentPage: {{ current_page }},
+      name: {{ theme.name | json }},
+      id: {{ theme.id }},
+    },
+    data: {},
+    state: {
+      cart: {{ cart | json }},
+      product: {},
+      slider: {},
+      modal: {},
+      'line-item': {},
+    },
+  };
+</script>
+
